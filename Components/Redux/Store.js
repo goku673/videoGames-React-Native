@@ -1,12 +1,16 @@
-import {configureStore}  from '@reduxjs/toolkit';
-import { gamesReducer } from './Slice';
 
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import gamesReducer from './Slice';
 
 const store = configureStore({
-      reducer : {
-        allGames : gamesReducer
-      }
-})
+  reducer: {
+    allGames: gamesReducer
+  },
+  middleware: getDefaultMiddleware({
+    serializableCheck: false
+  })
+});
+
 
 export default store;
 
